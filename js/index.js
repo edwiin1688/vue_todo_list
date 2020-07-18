@@ -47,7 +47,7 @@ var app = new Vue({
         removeTodo: function (todo) {
 
             // ? 找到要刪除的項目索引
-            var newIndex = this.todos.findIndex( function(item, key) {
+            var newIndex = this.todos.findIndex(function (item, key) {
                 return todo.id == item.id;
             });
             this.todos.splice(newIndex, 1);// 1 是指刪除 1 筆資料
@@ -69,6 +69,11 @@ var app = new Vue({
             item.title = this.cacheTitle;
             this.cacheTitle = '';
             this.cacheTodo = {};
+        },
+
+        // todo 清除所有任務
+        clearAll: function () {
+            this.todos = [];
         }
     },
     computed: {
@@ -96,6 +101,16 @@ var app = new Vue({
                 return newTodo;
             }
             return [];
+        },
+        // todo 取得未完成任務數
+        undoneRecords: function () {
+            var undoneRecords = [];
+            this.todos.forEach(function (item) {
+                if (!item.completed) {
+                    undoneRecords.push(item);
+                }
+            })
+            return undoneRecords.length;
         }
     }
 });

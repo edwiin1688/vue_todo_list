@@ -79,7 +79,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <input type="text" class="form-control" 
+                    <input type="text" class="form-control"
                     v-model="cacheTitle"
                     @keyup.esc="cancelEdit()"
                     @keyup.enter="doneEdit(item)"
@@ -87,8 +87,8 @@
                 </li>
             </ul>
             <div class="card-footer d-flex justify-content-between">
-                <span>還有 3 筆任務未完成</span>
-                <a href="#">清除所有任務</a>
+                <span>還有 {{ undoneRecords }} 筆任務未完成</span>
+                <a href="#" @click="clearAll">清除所有任務</a>
             </div>
         </div>
     </div>
