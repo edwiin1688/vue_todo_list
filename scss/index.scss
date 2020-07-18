@@ -1,0 +1,10 @@
+.completed {
+    text-decoration: line-through
+}
+
+// 滑鼠滑過會有變色提示
+.list-group-item {
+    &:hover {
+        background-color: lightblue;
+    }    
+}
